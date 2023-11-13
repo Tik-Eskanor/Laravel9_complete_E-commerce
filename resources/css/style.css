@@ -1,0 +1,1233 @@
+*
+{
+  margin: 0 ;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  list-style-type:none;
+  /* border:1px solid blue; */
+}
+
+/* fonts----------- */
+@font-face {
+    font-family:eco;
+    src: url(../fonts/eco.otf);
+}
+@font-face {
+    font-family:lato-bold;
+    src: url(../fonts/Lato-Bold.ttf);
+}
+@font-face {
+    font-family:poppins-regular;
+    src: url(../fonts/Poppins-Regular.ttf);
+}
+/* ---------------- */
+
+/* general--------- */
+html
+{
+    font-size: 85%;
+    font-family: sans-serif;
+}
+
+h1,h2,h3,h4,h5,a
+{
+    font-family: lato-bold;
+}
+p
+{
+    font-family: poppins-regular;
+}
+
+.btn
+{
+    padding: 0.8rem 1rem;
+    border-radius: 3px;
+    border: 1px solid rgba(51, 51, 51, 0.527);
+    display:inline-block;
+    color: #333;
+    font-size: 1.3rem;
+    box-shadow: 0px 0px 8px #33333331;
+    transition: all 0.5s ease-in-out;
+    background: transparent;
+}
+
+.btn-dark
+{
+    background: #333;
+    color: whitesmoke;
+}
+.btn-green
+{
+    background:burlywood;
+    color: #333;
+}
+.btn:hover
+{
+    background: #333;
+    color: whitesmoke;
+}
+
+.subtitle h1
+{
+    font-size: 3rem;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.subtitle h2
+{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.subtitle h1::before
+{
+    content:"";
+    position: absolute;
+    top: 0px;
+    left: 0;
+    display: block;
+    width: 60px;
+    background-color: black;
+    height: 5px;
+    border-radius:50px
+}
+.subtitle h1::after
+{
+    content:"";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    display: block;
+    width: 60px;
+    background-color: black;
+    height: 5px;
+    border-radius:50px
+}
+.success_message
+{
+    padding: 0.8rem;
+    background: burlywood;
+    color: #333;
+    margin-bottom: 0.8rem;
+}
+.error_message
+{
+    padding: 0.8rem;
+    background: rgba(255, 0, 0, 0.589);
+    margin-bottom: 0.8rem;
+    color: whitesmoke;
+}
+/* --------------- */
+
+/* layout--------- */
+.container
+{
+    max-width: 1300px;
+    margin: auto;
+    padding:0 2rem;
+}
+.row
+{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.row-stretch
+{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;  
+    justify-content: space-between;
+}
+.row-footer
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.col-6
+{
+    flex-basis: 47%;
+    min-width: 250px;
+    margin-bottom: 1rem;
+}
+.col-7
+{
+    flex-basis: 55%;
+    min-width: 250px;
+    margin-bottom: 1rem;
+}
+.col-8
+{
+    flex-basis: 70%;
+    min-width: 250px;
+    margin-bottom: 1rem;
+}
+.col-12
+{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.col-3
+{
+    flex-basis: 22%;
+    min-width: 250px;
+    margin-bottom: 1.5rem;
+}
+.col-2
+{
+    flex-basis: 22%;
+}
+.col-4
+{
+    flex-basis: 32%;
+    min-width: 250px;
+    margin-bottom: 1.5rem;
+}
+/* --------------- */
+
+/* header------------- */
+header
+{
+    position: relative;
+    background: whitesmoke
+}
+header .wrapper
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* nav------------ */
+nav
+{
+    color: #333;
+    padding: 1.4rem 0;
+}
+nav .content
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo
+{
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 900;
+}
+.logo span
+{
+    font-size: 1.8rem;
+}
+
+nav .content ul
+{
+    display: flex;
+    align-items: center;
+}
+nav .content ul li
+{
+    margin-right: 2rem;
+}
+nav .content ul li a
+{
+    color: #333;
+    font-size: 1.3rem;
+}
+nav .content ul li a span
+{
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+nav .content ul li a .count
+{
+    background: #333;
+    color: rgba(245, 245, 245, 0.781);
+    display: flex;
+    padding: 0.2rem 0.6rem;
+    border-radius: 50px;
+    margin-left: 0.3rem;
+    font-size: 0.7rem;
+    justify-content: center;
+    align-items: center;
+    font-weight: 100;
+}
+nav .content ul li .saved
+{
+    font-size: 1.5rem;
+    font-weight:900;
+}
+nav .content ul li .search-icon
+{
+    font-size: 1.8rem;
+}
+
+nav .search-bar
+{
+    margin-top: 0.5rem;
+}
+nav .search-bar form
+{
+    display: block;
+    width: 100%;
+    border: 1px solid rgba(51, 51, 51, 0.274);
+    padding:0.3rem 0.6rem;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0px 0px 7px rgba(51, 51, 51, 0.158);
+    display: flex;
+    align-items: center;
+}
+nav .search-bar form input
+{
+    border:none;
+    flex: 1;
+}
+nav .search-bar form input:focus
+{
+    outline: none;
+}
+nav .search-bar form i
+{
+    display: inline-block;
+    font-size: 1.2rem;
+}
+
+.auth-menu ul
+{
+    display: flex;
+    font-size: 1.3rem;
+    column-gap: 2rem;
+}
+
+.mobile-menu
+{
+    display: none;
+}
+
+/* Toggling menu   */
+#menu-wrapper
+{
+  display:none;
+}
+
+/* --------------- */
+
+/* hero----------- */
+.hero
+{
+    background: linear-gradient(to right, rgba(0,0,0,0.9),rgba(0,0,0,0.4)),url(../images/hero.jpg);
+    background-position:right;
+    background-size: cover;
+    background-attachment: fixed;
+    border-radius: 0 0 15px 15px;
+}
+.hero .content
+{
+    padding: 10rem 0;
+    display: flex;
+    align-items: center;
+}
+.hero .content .texts h1
+{
+    font-size:8rem;
+    color:whitesmoke;
+    font-family: eco;
+    font-style: italic;
+    line-height: 1;
+}
+.hero .content .texts .para-text
+{
+    font-family: eco;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    font-style: italic;
+    color: rgba(245, 245, 245, 0.699);
+
+}
+.hero .content .texts .para-text span
+{
+    font-size: 1.7rem;
+}
+
+.btn-container
+{
+    max-width: 320px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+.btn-container .btn
+{
+   flex-basis: 48%;
+   border: 2px solid whitesmoke;
+   color: rgb(245, 245, 245);
+   padding: 1rem 0;
+   display: block;
+   text-align: center;
+   font-size: 1.1rem;
+   border-radius: 50px;
+   letter-spacing: 1px;
+}
+/* -------------------- */
+
+
+/* ----about----------- */
+.about
+{
+  margin-top: 5rem;
+}
+.about .content
+{
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+.about .content h1
+{
+    font-size: 3rem;
+    font-family: eco;
+}
+.about .content p
+{
+    font-size: 1.2rem;
+    color: #333;
+}
+.about .content .para-text
+{
+    padding:0 1.5rem;
+    margin-top: 0.5rem;
+}
+.sub-section
+{
+    margin-top: 4rem;
+    background: #333;
+    padding:5rem 0 2rem 0;
+}
+.sub-section h2
+{
+   font-size: 3.5rem;
+   line-height: 1.2;
+   color: whitesmoke;
+}
+.sub-section h2 span
+{
+   font-size: 4rem;
+   color: burlywood;
+   line-height: 1;
+
+}
+.sub-section p
+{
+   max-width: 350px;
+   margin-left: auto;
+   margin-top: 0.4rem;
+   color: whitesmoke;
+   font-size: 1.1rem;
+}
+ .sub-section .owl-carousel .item .img img
+{
+    width: 60%;
+}
+ .sub-section .texts
+{
+    text-align: right;
+}
+/* -------------------- */
+
+/* ----products-------- */
+.products
+{
+    margin-top: 5rem;
+}
+.products .img
+{
+    padding: 1rem;
+    background: rgba(245, 245, 245, 0.534);
+    border: 1px solid #33333313;
+    border-radius: 10px;
+    text-align: center;
+}
+.products .img img
+{
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin: auto
+}
+.products .texts
+{
+   margin-top: 0.2rem;
+   padding: 0.5rem;
+}
+.products .texts a
+{
+   font-size: 1.3rem;
+   color: #333;
+}
+
+.products .texts p
+{
+   font-size: 1.5rem;
+   color: black;
+}
+
+.products.related
+{
+    background: whitesmoke;
+    padding: 4rem 0 2rem 0;
+}
+.products.related .img
+{
+    /* background: white; */
+    box-shadow: 0px 0px 20px rgba(51, 51, 51, 0.082);
+}
+/* ------------------- */
+
+
+/* shop--------------- */
+.price-filter
+{
+    font-size: 1.3rem;
+}
+.price-filter a
+{
+    color:burlywood;
+    font-weight:bold;
+    /* font-s */
+}
+.shop .col-3.left
+{
+    margin-top: 5rem;
+}
+.shop .content.bottom
+{
+    margin-top: 2rem;
+}
+.shop .content.left ul
+{
+    margin-top: 1rem;
+}
+.shop .content.left ul li
+{
+    margin: 0.5rem 0;
+}
+.shop .content.left ul .active
+{
+   font-weight: 900;
+}
+.shop .content.left ul li a
+{
+    color: rgba(51, 51, 51, 0.733);
+    font-size: 1.3rem;
+    transition: all 0.2s ease-in-out;
+}
+.shop .content.left ul li a:hover
+{
+    color: #333;
+}
+
+/* ------------------- */
+
+/* product------------ */
+.product
+{
+  margin-top: 3rem;
+}
+
+.product .img-container img
+{
+    padding: 2rem;
+    background: whitesmoke;
+    border: 1px solid rgba(51, 51, 51, 0.11);
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(51, 51, 51, 0.123);
+    transition: all 0.2s ease-in-out;
+    opacity: 0.3;
+}
+.product .img-container img.active
+{
+  opacity: 1;
+}
+
+.product h1
+{
+   font-size: 3rem;
+}
+.product h2
+{
+   font-size: 1.5rem;
+   color: #333;
+}
+.product .price
+{
+   font-size: 2rem;
+  margin-top: 1.8rem;
+}
+.product p
+{
+   max-width: 370px;
+}
+.product .stock-in
+{
+    background: burlywood;
+    color: white;
+    padding: 0.5rem 1rem;
+    max-width: 150px;
+    border-radius: 50px;
+    text-align: center;
+    margin: 0.5rem 0;
+    font-family: poppins-regular;
+    box-shadow: 0px 0px 10px rgba(51, 51, 51, 0.336);
+}
+.product .stock-low
+{
+    background: rgb(182, 135, 74);
+    color: white;
+    padding: 0.5rem 1rem;
+    max-width: 150px;
+    border-radius: 50px;
+    text-align: center;
+    margin: 0.5rem 0;
+    font-family: poppins-regular;
+    box-shadow: 0px 0px 10px rgba(51, 51, 51, 0.336);
+}
+.product .stock-empty
+{
+    background: rgb(238, 29, 29);
+    color: white;
+    padding: 0.5rem 1rem;
+    max-width: 150px;
+    border-radius: 50px;
+    text-align: center;
+    margin: 0.5rem 0;
+    font-family: poppins-regular;
+    box-shadow: 0px 0px 10px rgba(51, 51, 51, 0.336);
+}
+.product .btn-wrapper
+{
+    margin-top: 2rem;
+}
+.product .images
+{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    max-width: 400px;
+    margin-bottom: 1rem;
+}
+.product .images .img
+{
+    width: 22%;
+    border: 1px solid rgba(51, 51, 51, 0.13);
+    border-radius: 5px;
+    padding: 0.2rem;
+    background: rgba(245, 245, 245, 0.76);    
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.images .img.selected
+{
+    box-shadow: 5px 5px 10px rgba(51, 51, 51, 0.452);
+}
+.product .images img:hover
+{
+    background: white;  
+}
+/* ------------------- */
+
+
+/* cart--------------- */
+.cart
+{
+    margin-top: 5rem;
+}
+.cart .cart-item
+{
+    padding-top: 0.8rem;
+    border-top:1px solid rgba(51, 51, 51, 0.123);
+    border-bottom:1px solid rgba(51, 51, 51, 0.103);
+}
+.cart h1
+{
+    margin-bottom: 1rem;
+}
+.cart .subtitle
+{
+    font-size:1.5rem
+}
+.cart .cart-title
+{
+    color:#333;
+    font-size: 2rem;
+}
+.cart .para-text
+{
+    font-size: 1.3rem;
+    color: rgba(51, 51, 51, 0.678);
+    font-weight: 900;
+    margin-top:0.5rem;
+}
+
+.cart .cart-item .price
+{
+    margin-top: 0.8rem;
+    font-size: 1.6rem;
+}
+
+.cart .cart-item .quantity-wrapper select
+{
+    display: inline-block;
+    padding: 1rem;
+    width: 35%;
+    border-radius: 5px;
+    border-color: rgba(51, 51, 51, 0.336);
+}
+
+.cart .col-4 .content 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart .col-4 .content .qty
+{
+    border: 1px solid rgba(51, 51, 51, 0.308);
+    padding: 0.3rem 0.5rem;
+    border-radius: 3px;
+    font-size: 1.3rem;
+}
+.cart .cart-item .btn-wrapper
+{
+    margin: 1.5rem 0;
+    display: flex;
+}
+.cart .cart-item .btn-wrapper .btn
+{
+    margin-right: 0.5rem;
+}
+
+
+.coupon 
+{
+  margin-top: 1rem;
+}
+
+.coupon p
+{
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+}
+.coupon .content
+{
+  border: 1px solid rgba(51, 51, 51, 0.336);
+  padding: 1rem;
+  border-radius: 3px;
+}
+
+.coupon .coupon-form
+{
+  width: 100%;
+  display: flex;
+  margin-top: 0px;
+}
+
+.coupon .coupon-form .input-text
+{
+  flex-basis: 80%;
+  padding:0.5rem;
+  border-radius: 3px 0 0 3px;
+}
+
+.coupon .coupon-form .btn
+{
+  flex-basis: 20%;
+  border-radius: 0px 3px 3px 0px;
+}
+
+.subtotal
+{
+    background: whitesmoke;
+    margin-top: 1rem;
+    padding: 1rem 1rem 0 1rem;
+}
+
+.subtotal p
+{
+    font-size: 1.1rem;
+    /* max-width: 400px; */
+}
+.subtotal .content h2
+{
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+.subtotal .content h1
+{
+   font-size:2.5rem;
+}
+.subtotal-price span
+{
+   font-size:1.5rem;
+   font-weight: bold;
+} 
+.subtotal-price .rm-coupon
+{
+   font-size:1.2rem;
+   font-weight: bold;
+   background:transparent;
+   color: rgba(255, 0, 0, 0.466);
+   border: none;
+}
+
+.content .proceed a
+{
+   margin-bottom: 1rem;
+   display: block;
+   text-align: center;
+}
+
+.discount-row
+{
+  border-bottom: 1px solid rgba(51, 51, 51, 0.377);
+  margin-bottom:1rem;
+}
+
+/* ------------------- */
+
+/* checkout----------- */
+.checkout
+{
+    margin-top: 3rem;
+}
+.checkout form
+{
+   width: 100%;
+   font-family: poppins-regular;
+   margin-top: 2rem;
+}
+.checkout form h2
+{
+   margin:1.5rem 0;
+}
+.checkout form .input-col-12,.input-col-6
+{
+    margin-bottom: 1rem;
+}
+.checkout form .input-col-12
+{
+    flex-basis: 100%;
+}
+.checkout form .input-col-6
+{
+    flex-basis: 46%;
+}
+.checkout form span
+{
+   font-weight: 900;
+   font-size: 1.2rem;
+   color: #333;
+}
+.checkout form input
+{
+    padding: 0.8rem;
+    border: 1px solid rgba(51, 51, 51, 0.308);
+    border-radius: 5px;
+    width: 100%;
+}
+.checkout .btn-wrapper a
+{
+    display: block;
+    text-align: center;
+    color: whitesmoke;
+    font-size: 1.5rem;
+}
+/* ------------------- */
+
+/* stripe------------- */
+.hide-spinner {
+    display: none;
+  }
+  
+  #payment-message {
+    color: rgb(105, 115, 134);
+    font-size: 16px;
+    line-height: 20px;
+    padding-top: 12px;
+    text-align: center;
+  }
+  
+  #payment-element {
+    margin-bottom: 24px;
+  }
+/* Buttons and links */
+#checkout-btn {
+    background: burlywood;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    border-radius: 4px;
+    border: 0;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    transition: all 02s ease;
+    box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+    width: 100%;
+  }
+    #checkout-btn:hover {
+    filter: contrast(115%);
+    }
+    #checkout-btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+    }
+    #button-text
+    {
+        text-align: center;
+        color: whitesmoke;
+        font-size: 1.5rem;
+    }
+  
+  /* spinner/processing state, errors */
+  .spinner,
+  .spinner:before,
+  .spinner:after {
+    border-radius: 50%;
+  }
+  .spinner {
+    color: #ffffff;
+    font-size: 22px;
+    text-indent: -99999px;
+    margin: 0px auto;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    box-shadow: inset 0 0 0 2px;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  .spinner:before,
+  .spinner:after {
+    position: absolute;
+    content: "";
+  }
+  .spinner:before {
+    width: 10.4px;
+    height: 20.4px;
+    background: burlywood;
+    border-radius: 20.4px 0 0 20.4px;
+    top: -0.2px;
+    left: -0.2px;
+    -webkit-transform-origin: 10.4px 10.2px;
+    transform-origin: 10.4px 10.2px;
+    -webkit-animation: loading 2s infinite ease 1.5s;
+    animation: loading 2s infinite ease 1.5s;
+  }
+  .spinner:after {
+    width: 10.4px;
+    height: 10.2px;
+    background: burlywood;
+    border-radius: 0 10.2px 10.2px 0;
+    top: -0.1px;
+    left: 10.2px;
+    -webkit-transform-origin: 0px 10.2px;
+    transform-origin: 0px 10.2px;
+    -webkit-animation: loading 2s infinite ease;
+    animation: loading 2s infinite ease;
+  }
+  
+
+
+
+
+/* Product search & search page--------- */
+.products-search
+{
+    margin-top: 5rem;
+}
+.products-search .wrapper
+{
+    width: min(900, 100% -3rem);
+    margin-inline: auto;
+}
+.products-search .table-container
+{
+    max-width: 100%;
+    overflow: auto;
+}
+
+.products-search table th, td
+{
+    padding: 15px 10px;
+}
+.products-search table
+{
+    width: 100%;
+    text-align:left;
+    border-spacing: 100px;
+    font-family:poppins-regular;
+    margin-top: 2rem;
+}
+
+.products-search table thead
+{
+    background: whitesmoke;
+}
+
+.products-search table tr:nth-of-type(2n)
+{
+    background: whitesmoke;
+}
+
+.products-search img
+{
+    width:30%;
+    margin-right: auto;
+}
+#stats-container
+{
+    margin:0.5rem 0;
+    color: black;
+    font-weight: 900;
+}
+.result-title,.result-details,.result-price
+{
+    width: 100%;
+    margin-bottom: 0.5rem;
+    font-family: poppins-regular;
+    font-size: 1.1rem;
+}
+.result-title
+{
+    color: rgb(211, 165, 105);
+    font-weight: 900;
+}
+.result-price
+{
+    font-weight: 900;
+}
+.ais-Hits-item
+{
+   flex-direction: column; 
+}
+/* ------------------------- */
+
+
+  @-webkit-keyframes loading {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes loading {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  
+
+/* ------------------- */
+
+/* thankyou----------- */
+.thank-you .row
+{
+   height: 80vh;
+}
+.thank-you .row .col-3
+{
+   margin: auto;
+   text-align: center;
+}
+.thank-you .row .col-3 h1
+{
+   font-size: 3rem;
+   line-height: 1;
+}
+.thank-you .row .col-3 p
+{
+   font-size: 1.2rem;
+   color: #333;
+   margin-top: 1rem;
+}
+.thank-you .row .col-3 a
+{
+
+   margin-top: 0.8rem;
+}
+/* ------------------- */
+
+/* footer------------- */
+footer
+{
+    background: #333;
+    color: whitesmoke;
+    margin-top: 5rem;
+    padding: 4rem 0;
+}
+footer h1
+{
+    font-size: 2.5rem;
+}
+footer .para-text
+{
+    max-width: 300px;
+}
+
+footer .icon-container
+{
+    margin-top: 0.5rem;
+}
+footer .icon-container a
+{
+   color: rgba(245, 245, 245, 0.377);
+   font-size: 1.5rem;
+   margin-right: 0.8rem;
+}
+
+
+
+/* media--------- */
+@media (max-width: 940px) 
+{
+    header
+    {
+        padding: 2rem 0;
+    }
+    header .wrapper
+    {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #menu-wrapper
+    {
+      display:block;
+      position: absolute;
+      top: 25px;
+      right: 15px;
+      cursor: pointer;
+    }
+
+    nav .content ul
+    {
+        display: block;
+    }
+
+    nav .content ul li
+    {
+        margin-bottom: 1.5rem;
+    }
+    nav
+    {
+        display: none;
+    }
+
+    .auth-menu ul
+    {
+        display: block;
+    }
+
+    .auth-menu ul li
+    {
+        margin-bottom: 1.5rem;
+    }
+    .auth-menu
+    {
+        display: none;
+    }
+
+    .mobile-menu
+    {
+        transition: all 0.5s ease-in-out;
+        display: block;
+        height: 0px;
+        overflow: hidden;
+    }
+    .mobile-menu nav
+    {
+       display: block;
+    }
+    .mobile-menu .auth-menu
+    {
+       display: block;
+    }
+    .mobile-menu.active
+    {
+        height: 70vh;
+    }
+
+    .mobile-menu nav .content
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .mobile-menu nav .search-bar
+    {
+        margin-bottom: 1rem;
+    }
+}
+@media (max-width: 700px) 
+{
+    html
+    {
+        font-size:75%;
+    }
+    .col-2,.col-3,.col-4,.col-6,.col-7,.col-8
+    {
+        flex-basis: 100%;
+    }
+    .products .img img
+    {
+        width: 140px;
+        height: 140px;
+    }
+    .products .col-3
+    {
+        min-width: 130px;
+        flex-basis: 45%;
+    } */
+    .sub-section .col-6 .texts
+    {
+        padding-right: 1rem;
+    }
+    form {
+      width: 80vw;
+      min-width: initial;
+    }
+    .cart .cart-item .btn-wrapper
+    {
+        margin-top: 1rem;
+        display: block;
+    }
+    .cart .cart-item .btn-wrapper .btn
+    {
+        margin: 0.5rem 0;
+        display: block;
+        width: 100%;
+    }
+    
+    .checkout form .input-col-6
+    {
+        flex-basis: 100%;
+    }
+  }

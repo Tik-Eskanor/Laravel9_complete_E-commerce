@@ -1,0 +1,215 @@
+Implementing shopping cart functionality
+---------------------------------------
+step1: composer require gloudemans/shoppingcart
+
+
+Stripe payment integration
+---------------------------
+1. import stripe library
+composer require cartalyst/stripe-laravel
+
+2. add the following code in the service file inside the config folder
+'stripe'=>[
+      'model'=> App\User::class,
+      'key'=> env('STRIPE_KEY'),
+      'secret'=> env('STRIPE_SECRET')
+    ]
+
+3. import stripe in your controller
+use Stripe;
+
+4. import stripe card error handler (optional)
+use CardErorException;
+
+
+Laravel voyager
+---------------
+composer require tcg/voyager
+
+next: install voyager with dummy-data
+php artisan voyager:install --with-dummy
+
+or
+
+next: install voyager without dummy-data
+php artisan vayager:install
+
+.Problems & solutions
+---------------------
+Be sure to add port number along with your app name in APP_URL in .env
+APP_URL=http://localhost:9000    (note:port number is 9000)
+
+
+
+.Editing views in voyager
+-------------------------
+You can override any of the BREAD views for a single BREAD by creating a new folder
+in resources/views/vendor/voyager/slug-name where slug-name is the name
+that you have assigned for that table e.g products,users,categories. There are 4 files that you can override:
+.browse.blade.php
+.edit-add.blade.php
+.read.blade.php
+.order.blade.php
+
+.Using custom Controllers
+-------------------------
+You can override the controller for a single BREAD by creating a controller which 
+extends Voyagers controller, for example:
+
+<?php
+
+namespace App\Http\Controllers;
+use TCG\Voyager\Http\Controllers\VoyagerBaseController
+class VoyagerCategoriesController extends VoyagerBaseController
+{
+}
+
+After that go to the BREAD-settings and fill in the Controller Name with your fully-qualified class-name:
+
+
+Setting up simple mail
+----------------------
+1. composer require guzzlehttp/guzzle
+
+2. Add the following to the .env file. The following below is copied from mailtrap 
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=ec0ea6c5a83d7d
+MAIL_PASSWORD=45003686d6577b
+MAIL_ENCRYPTION=tls
+
+3.Create a mail command in the command line
+php artisan make:mail mailname
+
+4. Define your mail content and header in the App/Mail/mailname file in the MailName class
+   .Headers
+   public function envelope()
+    {
+        return new Envelope(
+            from: 'admin@admin.com',
+            to: 'email@email.com',
+            subject: 'Order Placed',
+        );
+    }
+
+   .Body or content
+   public function content()
+    {
+        return new Content(
+            view: 'emails.orders.placed',
+        );
+    } 
+5. Create a blade file that matches the directory specified in [view: 'emails.orders.placed']
+in the view directory
+
+
+6. Mail::send(new MailName());
+
+Note:import the Mail class (use Illuminate\Support\Facades\Mail;) and 
+the MailName class (use App\Mail\MailName;)
+
+Note: if this-> MAIL_FROM_ADDRESS="admin@admin.com"
+                MAIL_FROM_NAME="Admin"
+is added in the .env file, it dosesnt need to be added in "from: 'admin@admin.com'"
+it is automatically gotten from the mail file inside the config folder.
+
+
+Sending mail with fields from database
+--------------------------------------
+1. In the  mailname file inside the config folder, define a public property that will be used to store the arguement passed
+to the constructor.
+  -> public $order;
+
+2. In the  mailname file inside the config folder, set the MailName __constructor class to
+take a variable using class type declarations.
+Note:import the Order class (Use App\Models\Order)
+
+  public function __construct(Order $order)
+  {
+      $this->order = $order;
+  }
+
+    public function envelope()
+    {
+        return new Envelope(
+            
+            to: $this->order->billing_email,
+            subject: 'Order for laravel ecommerce example',
+        );
+    }
+
+2. Mail::send(new MailName($order));
+Note: by passing the $order arguement we can access the $order variable in the "emails.orders.placed" file
+
+
+
+
+
+Implementing Searchable package
+--------------------------------
+1. composer require nicolaslopezj/searchable
+
+[Use the following if the package still dosent work after completing all the steps.
+in the composer.json, add the following value "nicolaslopezj/searchable": "^1" to the "require" key
+->  "require": {
+        "nicolaslopezj/searchable": "^1",      
+    },
+
+
+
+2.Use the following in the model you wish to perform search on. in our case its the Product Model 
+-> use Nicolaslopezj\Searchable\SearchableTrait;
+Note: the above comes before the class opening curly brace
+
+3.Inside the class declaration, write the following
+-> use SearchableTrait;
+
+4. Add the following
+-> protected $searchable = [
+         'columns'=>[
+           'product.name'=>2,
+           'product.details'=>2,
+           'product.description'=>2
+         ]
+    ];
+ the above repersent the column that will be searched and the numbers(values) repersent
+ which column will take higher importance (which column will be quaried first)
+
+
+
+Implementing Algolia search
+----------------------------
+1.install laravel scout
+-> composer require laravel/scout
+This package will help push out data to Algolia and keep it in synk anytime we update our model
+
+2.Run the following to publish the scout file in our config folder
+->php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"
+
+3.In the  config.scout file a default algolia driver is already present. You can edit it if you are using another search driver
+-> 'algolia' => [
+        'id' => env('ALGOLIA_APP_ID', ''),
+        'secret' => env('ALGOLIA_SECRET', ''),
+    ],
+Make sure you get your Application Id(ALGOLIA_APP_ID) and Secret key(ALGOLIA_SECRET) from algolia. And define them in the .env file
+
+4.import the following in your model
+-> use Laravel\Scout\Searchable;
+
+5. Use the Searchable class at the top of your model class
+-> use Searchable;
+
+5. Install algolia client (SDK)
+-> composer require algolia/algoliasearch-client-php
+
+6. Import your data to algolia
+-> php artisan scout:import "App\Models\Product"
+the above executes pushing our data to Algolia
+
+
+request methods
+----------------
+$request->all();    get all the input fields submitted
+$request->except(['','']); excludes certain input fields from being submitted. 
+$request->filled(''); checks if an input field is filled
