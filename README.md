@@ -3,6 +3,8 @@ This app has a smooth and responsive design pattern involving Custom CSS, JAVASC
 
 Packages and  special functionalitie on this app.
 
+A Database.sql file required by the database is present
+
 PACKAGES
 -------
 1. Gloudemans shoping cart package which handles the cart.
