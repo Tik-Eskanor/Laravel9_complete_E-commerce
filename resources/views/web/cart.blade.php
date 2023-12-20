@@ -92,7 +92,7 @@
                             </div>
                             <div class="col-6">
                                 <div class="content subtotal-price">
-                                    <div class="row"> <h2>Subtotal:</h2><span>{{Cart::subtotal()}}</span></div>
+                                    <div class="row"> <h2>Subtotal:</h2><span>${{Cart::subtotal()}}</span></div>
 
                                     @if (session()->has('coupon'))
                                     <div class="row discount-row"> 

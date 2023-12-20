@@ -16,6 +16,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@esbuild/win32-x64": "^0.19.9",
         "algoliasearch": "^4.20.0",
         "instantsearch.js": "^4.58.0"
     }

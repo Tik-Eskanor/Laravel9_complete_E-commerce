@@ -34,10 +34,10 @@
                            
                             @foreach ($products as $product)
                             <tr>
-                              <td><a href="">{{ $product->name }}</a></td>
+                              <td><a href="{{route('shop.show',$product->id)}}">{{ $product->name }}</a></td>
                               <td>{{ $product->details }}</td> 
                               <td>{!! Str::limit($product->description, 80, '...') !!}</td> 
-                              <td>{{ $product->price }}</td> 
+                              <td>${{ $product->price }}</td> 
                             </tr>  
                             @endforeach 
                         </table>

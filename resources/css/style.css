@@ -322,7 +322,7 @@ nav .search-bar form i
 /* hero----------- */
 .hero
 {
-    background: linear-gradient(to right, rgba(0,0,0,0.9),rgba(0,0,0,0.4)),url(../images/hero.jpg);
+    background: linear-gradient(to right, rgba(0,0,0,0.9),rgba(0,0,0,0)),url(../images/hero.jpg);
     background-position:right;
     background-size: cover;
     background-attachment: fixed;

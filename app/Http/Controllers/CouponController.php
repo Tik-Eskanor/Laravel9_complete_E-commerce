@@ -22,7 +22,7 @@ class CouponController extends Controller
 
         if(!$coupon)
         {
-            return redirect()->route('checkout.index')->withErrors('Invalid Coupon');
+            return redirect()->route('cart.index')->withErrors('Invalid Coupon');
         }
 
         dispatch_now(new UpdateCoupon($coupon));

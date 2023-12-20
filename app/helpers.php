@@ -23,7 +23,7 @@ function productImage($path)
         $newTotal = $newSubtotal + $newTax;
 
         return [
-            'tax'=>$tax,
+            'tax'=>$newTax,
             'discount'=>$discount,
             'code'=>$code,
             'newSubtotal'=>$newSubtotal,

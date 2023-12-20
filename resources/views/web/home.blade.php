@@ -22,7 +22,7 @@
             <div class="col-6">
                 <div class="content">
                     <h1>Welcome to Eco Store</h1>
-                    <p class="para-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto magnam tempora, recusandae in, autem molestiae rerum nostrum quaerat quia aut quisquam facere quidem sint? Ratione aspernatur accusantium dolorum voluptate fuga similique facilis itaque doloremque veniam aliquam, voluptatum, suscipit laudantium tempore a id eos vitae esse est, autem mollitia nesciunt! Accusamus.</p>
+                    <p class="para-text">Lorem ipsum dolor sit amet consectett. Iur adipisicing, recusandae in, autem molestiae rerum nostrum quaerat quia aut quisquam facere quidem sint? Ratione aspernatur accusantium dolorum voluptate fuga similique facilis itaque doloremque veniam aliquam, voluptatum, suscipit laudantium tempore a id eos vitae esse est, autem mollitia nesciunt! Accusamus.</p>
                     <div class="mt-5">
                         <a href="{{ route('shop.index') }}" class="btn">Read more <i class="fas fa-arrow-right"></i></a>
                     </div>
@@ -95,7 +95,7 @@
                         <div class="img"><img src="{{ asset('storage/'.$product->image) }}" ></div>
                         <div class="texts">
                             <a href="{{route('shop.show',$product->id)}}">{{ $product->name }}</a>
-                            <p>{{ $product->presentPrice() }}</p>
+                            <p>${{ $product->presentPrice() }}</p>
                         </div>
                     </div>
                 </div>

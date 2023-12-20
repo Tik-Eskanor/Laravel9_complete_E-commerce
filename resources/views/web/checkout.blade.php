@@ -24,7 +24,7 @@
               <div class="cart-item">
                 <div class="row">
                     <div class="col-3">
-                      <div class="img"><img src="{{ asset('storage/'.$item->model->image) }}" width="50%"></div>
+                      <div class="img"><img src="{{ asset('storage/'.$item->model->image)}}" width="50%"></div>
                     </div>
                     <div class="col-4">
                         <div class="content">
@@ -138,8 +138,7 @@
                         <div class="">{{ $message }}</div>
                       @enderror
                     </div>
-                    <div class="input-col-12" id="payment-card-element">
-                      
+                    <div class="input-col-12" id="payment-card-element">                    
                     </div>
                     <div class="input-col-12">
                       <div class="btn-wrapper">
